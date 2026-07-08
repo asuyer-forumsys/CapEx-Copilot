@@ -23,6 +23,7 @@ dependencies = [
     "httpx",
     "pinecone",
     "chonkie",
+    "colorama",
 ]
 
 [tool.setuptools]
