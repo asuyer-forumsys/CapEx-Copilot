@@ -28,6 +28,7 @@ class ChunkMetadata:
     synthetic: bool
     note: str
 
+
 @dataclass
 class MatchedChunk:
     text: str
@@ -98,13 +99,12 @@ class PineconeDB:
         # Extract chunk content, filename, and similarity score
         matched_chunks = []
         for match in response.matches:
-            matched_chunks.append(MatchedChunk(
-                text=match.metadata.get("text"),
-                filename=match.metadata.get("filename"),
-                similarity_score=match.score,
-            ))
+            matched_chunks.append(
+                MatchedChunk(
+                    text=match.metadata.get("text"),
+                    filename=match.metadata.get("filename"),
+                    similarity_score=match.score,
+                )
+            )
 
         return matched_chunks
-
-
-

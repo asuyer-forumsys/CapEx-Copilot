@@ -4,9 +4,9 @@
 #
 
 from .document_ingester import Ingester
-from .chunker import Chunker
-from .embedder import Embedder
-from .pineconedb import PineconeDB, ChunkMetadata
+from ..chunker import Chunker
+from ..embedder import Embedder
+from ..pineconedb import PineconeDB, ChunkMetadata
 
 __all__ = [
     Ingester,

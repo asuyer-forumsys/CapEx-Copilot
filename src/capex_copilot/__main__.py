@@ -3,10 +3,8 @@
 # Created by asuyer-forum, asuyer@forumsys.com
 #
 
-from .ingester import Ingester
-from .ingester import Chunker
-from .ingester import Embedder
-from .ingester import PineconeDB
+# from .ingester import Ingester
+from .ingester import Chunker, Embedder, PineconeDB
 
 
 def main():

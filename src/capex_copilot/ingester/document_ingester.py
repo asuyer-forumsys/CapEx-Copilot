@@ -7,9 +7,9 @@ import json
 from typing import Any
 from pathlib import Path
 
-from .chunker import Chunker
-from .embedder import Embedder
-from .pineconedb import PineconeDB, ChunkMetadata
+from ..chunker import Chunker
+from ..embedder import Embedder
+from ..pineconedb import PineconeDB, ChunkMetadata
 
 
 class Ingester:
