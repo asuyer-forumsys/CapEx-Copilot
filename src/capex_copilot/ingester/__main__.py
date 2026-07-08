@@ -12,16 +12,16 @@ def main():
 
     chunker = Chunker()
     embedder = Embedder("Qwen/Qwen3-Embedding-8B")
-    database = PineconeDB("corpus", "test-4")
+    database = PineconeDB("corpus", "all-files")
 
     ingester = Ingester(chunker, embedder, database)
 
-    document_path = Path("corpus/case__ai_customer_service_chatbot.md")
     metadata_path = Path("corpus/_manifest.json")
-
-    print("Ingesting")
-    ingester.ingest_document(document_path, metadata_path)
-    print("Done")
+    corpus_dir = Path("corpus")
+    for file_path in corpus_dir.iterdir():
+        if file_path.is_file() and file_path.suffix == ".md":
+            print(f"Ingesting {file_path.name}")
+            ingester.ingest_document(file_path, metadata_path)
 
 
 if __name__ == "__main__":

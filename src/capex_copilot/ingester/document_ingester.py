@@ -29,7 +29,7 @@ class Ingester:
         # Read document contents
         with open(path, "r") as f:
             contents = f.read()
-    
+
         # Read document metadata
         with open(metadata_path, "r") as f:
             all_metadata = json.load(f)
@@ -38,17 +38,17 @@ class Ingester:
         for meta in all_metadata:
             if meta.get("file") == path.name:
                 metadata = ChunkMetadata(
-                    filename=meta.get("file"),
-                    doc_id=meta.get("doc_id"),
-                    doc_type=meta.get("doc_type"),
-                    title=meta.get("title"),
-                    initiative=meta.get("initiative"),
-                    as_of_date=meta.get("as_of_date"),
-                    fiscal_period=meta.get("fiscal_period"),
-                    words=meta.get("words"),
-                    sections=meta.get("sections"),
-                    synthetic=meta.get("synthetic"),
-                    note=meta.get("note"),
+                    filename=meta.get("file", ""),
+                    doc_id=meta.get("doc_id", ""),
+                    doc_type=meta.get("doc_type", ""),
+                    title=meta.get("title", ""),
+                    # initiative=meta.get("initiative", ""),
+                    # as_of_date=meta.get("as_of_date", ""),
+                    # fiscal_period=meta.get("fiscal_period", ""),
+                    words=meta.get("words", 0),
+                    sections=meta.get("sections", 0),
+                    synthetic=meta.get("synthetic", False),
+                    note=meta.get("note", ""),
                 )
 
         # Break document down into chunks

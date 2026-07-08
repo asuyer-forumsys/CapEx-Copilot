@@ -1,9 +1,9 @@
 
 import dspy, json
-import numpy as np
 from typing import Literal, Tuple, List
 from openai import OpenAI
 from httpx import Client, Limits
+import numpy as np
 
 embedding_client = OpenAI(
     api_key="EMPTY",  # OpenAI-compatible dummy key

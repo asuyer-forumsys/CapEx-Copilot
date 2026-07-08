@@ -12,18 +12,6 @@ from .ingester import PineconeDB
 def main():
     print("Hello from CapEx-Copilot")
 
-    chunker = Chunker()
-    embedder = Embedder("Qwen/Qwen3-Embedding-8B")
-    database = PineconeDB("corpus", "test-1")
-
-    # injester = Ingester(
-    #     chunker=Chunker(),
-    #     embedder=Embedder(),
-    #     database=PineconeDB(),
-    # )
-    #
-    # injester.injest_document(path_to_document)
-
 
 def chunker_only():
     filepath = "corpus/case__ai_customer_service_chatbot.md"
@@ -82,5 +70,20 @@ def injest_first_chunk():
     print("Embedding inserted")
 
 
+def test_query():
+    embedder = Embedder("Qwen/Qwen3-Embedding-8B")
+    database = PineconeDB("corpus", "all-files")
+
+    query = "What discount rate does Copperline mandate for all NPV calculations, and which document establishes this as a company-wide policy versus which document explains the mechanics of applying it?"
+
+    embedding = embedder.create_embedding(query)
+    similar_chunks = database.query(embedding, 3)
+
+    for i, chunk in enumerate(similar_chunks):
+        print(f"-- Similar chunk {i} / from {chunk.filename} / score {chunk.similarity_score} --")
+        print(chunk.text)
+        print()
+
+
 if __name__ == "__main__":
-    chunker_only()
+    test_query()

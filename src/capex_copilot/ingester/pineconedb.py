@@ -20,13 +20,19 @@ class ChunkMetadata:
     doc_id: str
     doc_type: str
     title: str
-    initiative: str
-    as_of_date: str
-    fiscal_period: str
+    # initiative: str
+    # as_of_date: str
+    # fiscal_period: str
     words: int
     sections: int
     synthetic: bool
     note: str
+
+@dataclass
+class MatchedChunk:
+    text: str
+    filename: str
+    similarity_score: float
 
 
 class PineconeDB:
@@ -71,7 +77,34 @@ class PineconeDB:
                     "metadata": {
                         "text": text,
                         "chunk_index": chunk_index,
-                        **asdict(metadata)},
+                        **asdict(metadata),
+                    },
                 }
             ],
         )
+
+    def query(self, vector: list[float], top_k: int) -> list[MatchedChunk]:
+        """
+        Query the database for chunks most similar to the vector encoded chunk `vector`
+        """
+        response = self.index.query(
+            namespace=self.namespace_name,
+            vector=vector,
+            top_k=top_k,
+            include_values=False,
+            include_metadata=True,
+        )
+
+        # Extract chunk content, filename, and similarity score
+        matched_chunks = []
+        for match in response.matches:
+            matched_chunks.append(MatchedChunk(
+                text=match.metadata.get("text"),
+                filename=match.metadata.get("filename"),
+                similarity_score=match.score,
+            ))
+
+        return matched_chunks
+
+
+
