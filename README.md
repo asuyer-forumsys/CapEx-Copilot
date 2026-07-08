@@ -1,0 +1,41 @@
+# CapEx Copilot
+
+CapEx Copilot is a planned RAG project for reviewing enterprise technology investment business
+cases. The corpus follows a fictional mid-size retailer, **Copperline Retail Group, Inc.**, through
+its Tech Investment Steering Committee's portfolio of 7 technology initiatives — proposal, vendor
+selection, approval, go-live, and post-implementation review — including a business case that gets
+revised after scope creep (ERP) and two that get deferred/rejected (WMS, AI chatbot).
+
+**Status:** data-only. This is the synthetic source corpus, built ahead of the lab guide PDF,
+`src/`, and reference tests — none of that exists yet.
+
+## What's in `data/corpus/`
+
+19 long, fully synthetic Markdown documents (~2,140 words average — noticeably longer than
+Research Desk's ~200-word and Analyst Copilot's ~380-word documents) across ten categories:
+
+- **`policy__*.md`** — the internal business case review policy and template guide.
+- **`case__*.md`** — seven full business cases, one per technology initiative (cloud migration,
+  omnichannel POS, customer data platform, cybersecurity, ERP replacement, WMS + robotics, AI
+  chatbot).
+- **`vendor__*.md`** — two vendor evaluation scorecards (ERP finalists, WMS/robotics finalists).
+- **`minutes__*.md`** — two steering committee meeting minutes (Q1 and Q3 2026).
+- **`memo__*.md`** — the CFO's FY2027 portfolio prioritization memo.
+- **`review__*.md`** — two post-implementation reviews (Cloud Migration at 12 months, POS at 6
+  months), reporting real actual-vs-projected variance against their original business cases.
+- **`audit__*.md`** — an internal audit risk memo across the portfolio.
+- **`addendum__*.md`** — a change request that deliberately revises the ERP case's cost, timeline,
+  NPV, and IRR after a scope-creep discovery.
+- **`glossary__*.md`** — the company's NPV/IRR/payback/TCO methodology reference.
+- **`tracker__*.md`** — a portfolio-wide benefits realization tracker.
+
+`_manifest.json` in the same folder provides metadata (doc type, initiative, as-of date, word
+count, and `supersedes`/`superseded_by` links) for every document, including explicit notes on the
+intentional cross-document contradictions and variances built into the corpus on purpose — e.g. the
+ERP case and its addendum carry deliberately different numbers, and the two post-implementation
+reviews carry deliberately different numbers than their tracker/minutes follow-ups — to give a RAG
+system real version-reconciliation and compare-across-documents exercises.
+
+All content is entirely fictional. No real company, person, or vendor is represented.
+
+Do not modify these files.

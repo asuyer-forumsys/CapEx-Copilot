@@ -1,0 +1,7 @@
+# MacOS
+.DS_Store
+
+# Python build files
+CapEx_Copilot.egg-info
+dist
+.venv
