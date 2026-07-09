@@ -4,7 +4,6 @@
 #
 
 import json
-from typing import Any
 from pathlib import Path
 
 from ..chunker import Chunker
@@ -20,7 +19,7 @@ class Ingester:
 
     def ingest_document(self, path: Path, metadata_path: Path):
         """
-        Chunks, embeds, and ingests a markdown document into the database.
+        Chunks, embeds, and upserts a markdown document into the database.
 
         Args:
             path (Path): path to the markdown document

@@ -14,7 +14,7 @@ class Retriever:
 
     def retrieve_chunks(self, query: str, top_k: int = 3) -> list[MatchedChunk]:
         """
-        Retrieves the `top_k` most relevant chunks for the `query`
+        Retrieves the `top_k` most relevant chunks for the `query`.
         """
         embedding = self.embedder.create_embedding(query)
         return self.database.query(embedding, top_k)

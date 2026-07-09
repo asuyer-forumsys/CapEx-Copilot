@@ -7,9 +7,9 @@ from chonkie import RecursiveChunker
 
 
 class Chunker:
-    def __init__(self, chunk_size_chars: int = 2048):
+    def __init__(self, chunk_size_tokens: int = 2048):
         self.chunker = RecursiveChunker.from_recipe(
-            "markdown", lang="en", chunk_size=chunk_size_chars
+            "markdown", lang="en", chunk_size=chunk_size_tokens, 
         )
 
     def chunk(self, contents: str) -> list[str]:
