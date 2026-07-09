@@ -2,9 +2,11 @@
 .DS_Store
 
 .env
+.hermes
 
 # Python build files
 CapEx_Copilot.egg-info
 dist
+build
 .venv
 __pycache__
