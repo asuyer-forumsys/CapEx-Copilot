@@ -1,0 +1,5 @@
+name: rag-retrieve
+version: "1.0"
+description: Search the knowledge base for chunks relevant to a query. Use this before answering questions that depend on indexed documents.
+provides_tools:
+  - rag_retrieve

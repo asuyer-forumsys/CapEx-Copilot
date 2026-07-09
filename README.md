@@ -39,3 +39,37 @@ system real version-reconciliation and compare-across-documents exercises.
 All content is entirely fictional. No real company, person, or vendor is represented.
 
 Do not modify these files.
+
+## Modules
+
+- `ingester`: document ingestion
+    - Breaks documents down into chunks
+    - Generates vector embeddings for each chunk
+    - Inserts vector embeddings into Pinecone vector database
+
+- `retriever`: chunk retriever
+    - Retrieves chunks that are semantically similar to a query
+
+- `agent`: (do not use)
+
+## Installing Hermes plugin
+
+First, install the `capex_copilot` package in the Hermes agent environment. From within 
+the root of this project, run:
+
+```sh
+~/.hermes/hermes-agent/venv/bin/pip install .
+```
+
+Next, copy the `src/capex_copilot/rag-retrieve` directory to `.hermes/plugins`.
+
+Now, enable the plugin by running `hermes plugins enable rag-retrieve`
+
+Now, start the Hermes agent with the following command to test it with only the RAG tool
+available:
+
+```sh
+hermes chat --toolset "rag-retrieve"
+```
+
+

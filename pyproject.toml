@@ -24,7 +24,12 @@ dependencies = [
     "pinecone",
     "chonkie",
     "colorama",
+    "hermes-agent @ git+https://github.com/NousResearch/hermes-agent.git"
 ]
+
+# Entry point for hermes agent plugins
+[project.entry-points."hermes_agent.plugins"]
+rag-retrieve = "capex_copilot.hermes_plugin"
 
 [tool.setuptools]
 # # include-package-data = true
