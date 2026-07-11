@@ -24,7 +24,7 @@ dependencies = [
     "pinecone",
     "chonkie",
     "colorama",
-    "hermes-agent @ git+https://github.com/NousResearch/hermes-agent.git"
+    "hermes-agent @ git+https://github.com/NousResearch/hermes-agent.git",
 ]
 
 # Entry point for hermes agent plugins

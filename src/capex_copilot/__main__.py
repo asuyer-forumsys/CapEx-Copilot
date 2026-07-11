@@ -4,6 +4,7 @@
 #
 
 # from .ingester import Ingester
+import embedding
 from .ingester import Chunker, Embedder, PineconeDB
 
 
@@ -84,4 +85,4 @@ def test_query():
 
 
 if __name__ == "__main__":
-    chunker_only()
+    embed_first_chunk()
