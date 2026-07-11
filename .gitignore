@@ -10,3 +10,7 @@ dist
 build
 .venv
 __pycache__
+
+# Javascript build files
+openclaw-rag-retrieve/node_modules
+openclaw-rag-retrieve/dist

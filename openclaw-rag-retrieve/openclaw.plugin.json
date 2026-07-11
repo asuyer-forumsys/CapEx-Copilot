@@ -1,0 +1,19 @@
+{
+  "id": "openclaw-rag-retrieve",
+  "name": "RAG retrieve",
+  "description": "Add RAG retrieve tools to OpenClaw.",
+  "version": "0.1.1",
+  "configSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "activation": {
+    "onStartup": true
+  },
+  "contracts": {
+    "tools": [
+      "rag_retrieve"
+    ]
+  }
+}
