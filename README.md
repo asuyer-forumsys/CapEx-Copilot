@@ -73,3 +73,40 @@ hermes chat --toolset "rag-retrieve"
 ```
 
 
+## Installing OpenClaw plugin
+
+Enter into the `openclaw-rag-retrieve` directory and run the following commands:
+
+```sh
+npm run plugin:build
+npm run plugin:validate
+```
+
+Then, `cd` back into this project root directory and make OpenClaw install the plugin:
+
+```sh
+cd ..       # into CapEx-Copilot/
+openclaw plugins install ./openclaw-rag-retrieve --force
+```
+
+Verify the install by running the following command:
+
+```sh
+openclaw plugins inspect openclaw-rag-retrieve --runtime
+```
+
+It should show `Status: loaded` and list `rag_retrieve` under `Tools`.
+
+**Important**: In order for the `rag_retrieve` tool to be accessible to the agent, you
+must be using the `full` tool profile. Be sure you have the following in
+`~/.openclaw/opencclaw.json`:
+
+```json
+"tools": {
+    "profile": "full"
+}
+```
+
+In an OpenClaw chat, you can verify that the tool is accessible by running `/tools compact` 
+and check if `rag_retrive` appears under "Connected tools."
+
