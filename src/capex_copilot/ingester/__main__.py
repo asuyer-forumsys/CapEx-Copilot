@@ -53,7 +53,10 @@ def ingest(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Document ingester")
+    parser = argparse.ArgumentParser(description=(
+        "Ingests documents by splitting them into chunks, creating vector embeddings for " 
+        "them, and upserting them into a Pinecone vector database"
+    ))
 
     parser.add_argument("index", help="Pinecone index")
     parser.add_argument("namespace", help="Pinecone namespace within index")

@@ -4,7 +4,6 @@
 #
 
 # from .ingester import Ingester
-import embedding
 from .ingester import Chunker, Embedder, PineconeDB
 
 
