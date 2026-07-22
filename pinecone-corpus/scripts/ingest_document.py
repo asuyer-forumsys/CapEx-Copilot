@@ -58,7 +58,7 @@ class Chunker:
         self.refinery = OverlapRefinery(
             tokenizer="character",
             context_size=0.25,
-            method="justified",
+            method="suffix",
             merge=True,
         )
 
@@ -120,7 +120,7 @@ class PineconeDB:
                 },
             )
 
-        self.index = pc.index(PINECONE_INDEX)
+        self.index = pc.Index(PINECONE_INDEX)
         self.namespace_name = PINECONE_NAMESPACE
 
     def upsert(

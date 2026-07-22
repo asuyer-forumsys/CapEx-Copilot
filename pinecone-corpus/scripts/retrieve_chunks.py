@@ -89,7 +89,7 @@ class PineconeDB:
                 },
             )
 
-        self.index = pc.index(PINECONE_INDEX)
+        self.index = pc.Index(PINECONE_INDEX)
         self.namespace_name = PINECONE_NAMESPACE
 
     def query(self, vector: list[float], top_k: int) -> list[MatchedChunk]:
