@@ -44,7 +44,7 @@ Args:
 - `<query>`: query to use for semantic similarity search.
 - `<top_k>`: number of chunks to retrieve.
 
-Prints a JSON string with key `results` that contains a list of chunk results, each containing:
+Prints a JSON string with one key `results` whose value is a list of chunk results, each containing:
 - `text`: text from the chunk
 - `source`: name of the source file
 - `score`: semantic similarity score
